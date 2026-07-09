@@ -1,0 +1,11 @@
+.link {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  text-align: center;
+}
+
+.active {
+    color: var(--grey-green);
+}

@@ -1,0 +1,27 @@
+.header {
+    width: 1440px;
+    height: 72px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logoLink {
+    padding-left: 64px;
+}
+
+.nav {
+    display: flex;
+    gap: 32px;
+    margin-right: 625px;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    text-align: center;
+}
+
+.navLink:focus {
+    color: var(--grey-green);
+}
