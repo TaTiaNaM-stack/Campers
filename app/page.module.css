@@ -1,0 +1,57 @@
+.inner {
+    padding: 72px 48px;
+    min-height: 844px;
+    background-image:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+        url("/banner.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center -80px;
+}
+
+.content{
+    margin-top: 195px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-family: var(--font-family);
+    font-weight: 600;
+    color: #f7f7f7;
+}
+
+.title {   
+    font-size: 48px;
+    line-height: 67%;
+}
+
+.description{
+    font-size: 24px;
+    line-height: 133%;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.ctaButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 200px;
+    border: none;
+    padding: 16px 60px;
+    width: 173px;
+    height: 56px;
+    background-color: var(--grey-green);
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    white-space: nowrap;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: var(--white);
+}

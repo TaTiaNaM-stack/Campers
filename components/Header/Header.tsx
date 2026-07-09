@@ -18,7 +18,7 @@ export default function Header() {
             </Link>
             <nav className={css.nav}>
                 <NavLink href="/">Home</NavLink>
-                <NavLink href="/campers">View Now</NavLink>
+                <NavLink href="/campers">Catalog</NavLink>
             </nav>
         </header>
     );
