@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from 'next/link';
 import css from './page.module.css';
 
@@ -5,7 +6,15 @@ export default function Home() {
   return (
     <main className={css.main}>
       <section className={css.hero} aria-labelledby="hero-title">
-        <div className={css.inner}>
+        <Image 
+        src="/images/banner.jpg" 
+        alt="Campers background"
+        fill                      
+        priority   
+        quality={85} 
+        className={css.backgroundImage}
+      />
+      <div className={css.gradientOverlay} />
           <div className={css.container}>
             <div className={css.content}>
               <h1 id="hero-title" className={css.title}>
@@ -18,8 +27,7 @@ export default function Home() {
             <Link href="/campers" className={css.ctaButton}>
               View Now
             </Link>
-          </div>
-        </div>
+          </div>    
       </section>
     </main>
   )
