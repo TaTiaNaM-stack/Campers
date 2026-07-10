@@ -62,7 +62,7 @@
     padding: 16px 60px;
     width: 173px;
     height: 56px;
-    background-color: var(--grey-green);
+    background-color: #829B91;
     font-family: var(--font-family);
     font-weight: 500;
     font-size: 16px;
@@ -70,4 +70,9 @@
     line-height: 150%;
     letter-spacing: -0.01em;
     color: var(--white);
+}
+
+.ctaButton:hover, .ctaButton:focus, .ctaButton:active{
+    background-color: #6D7B75;
+    cursor: pointer;
 }

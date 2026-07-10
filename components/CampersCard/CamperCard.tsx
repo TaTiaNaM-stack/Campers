@@ -1,0 +1,1 @@
+import { Camper } from '@/types/types';
