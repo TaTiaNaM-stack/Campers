@@ -6,7 +6,7 @@
 // import FilterSidebar from '../FilterSidebar/FilterSidebar';
 // import CamperCard from '../CamperCard/CamperCard';
 import Loader from '../Loader/Loader';
-// import ErrorBlock from '../ErrorBlock/ErrorBlock';
+import ErrorBlock from '../ErrorBlock/ErrorBlock';
 // import { api } from '@/services/api';
 import styles from './CampersSection.module.css';
 
@@ -70,7 +70,11 @@ export default function CampersSection() {
     //     Array.isArray(page) ? page : page.items || []
     // ) || [];
 
-    const isLoading = true;
+    const isLoading = false;
+    const isError = true;
+
+    const handleFilterChange = () => {}; 
+    
 
     return (
         <div className={styles.container}>
@@ -78,8 +82,8 @@ export default function CampersSection() {
             <div className={styles.cardsList}>
                 {isLoading ? (
                     <Loader />
-                // ) : isError ? (
-                //     <ErrorBlock onRetry={handleFilterChange} />
+                ) : isError ? (
+                    <ErrorBlock onRetry={handleFilterChange} onCancel={handleFilterChange} />
                 // ) : allCampers.length === 0 ? (
                 //     <p className={styles.message}>No campers found matching your criteria.</p>
                 ) : (
