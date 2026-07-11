@@ -3,6 +3,7 @@
 import { Camper } from '@/types/types';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { useSearchParams } from 'next/navigation';
+import { useCamperFilters } from '@/hooks/useCamperFilters';
 import FilterSidebar from '../FilterSidebar/FilterSidebar';
 import CamperCard from '../CamperCard/CamperCard';
 import Loader from '../Loader/Loader';
@@ -10,26 +11,10 @@ import ErrorBlock from '../ErrorBlock/ErrorBlock';
 import { api } from '@/services/api';
 import styles from './CampersSection.module.css';
 
-interface Filters {
-    location: string;
-    form: string;
-    engine: string;
-    transmission: string;
-}
-
-interface CampersSectionProps {
-    initialFilters: Filters;
-}
-
-export default function CampersSection({ initialFilters }: CampersSectionProps) {
+export default function CampersSection() {
     const searchParams = useSearchParams();
 
-    const activeFilters: Filters = {
-        location: searchParams.get('location') || '',
-        form: searchParams.get('form') || '',
-        engine: searchParams.get('engine') || '',
-        transmission: searchParams.get('transmission') || '',
-    };
+    const activeFilters = useCamperFilters();
 
     const {
         data,
@@ -56,6 +41,7 @@ export default function CampersSection({ initialFilters }: CampersSectionProps) 
         },
 
         initialPageParam: 1,
+        
         getNextPageParam: (lastPage, allPages) => {
             const lastPageItems = Array.isArray(lastPage) ? lastPage : lastPage.items || [];
             return lastPageItems.length === 4 ? allPages.length + 1 : undefined;
