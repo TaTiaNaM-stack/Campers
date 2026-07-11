@@ -26,7 +26,7 @@ export default async function CatalogPage({ searchParams }: CatalogPageProps) {
 
     return (
         <main>
-            <CampersSection initialFilters={filters} />
+            <CampersSection />
         </main>
     );
 }
