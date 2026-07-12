@@ -1,7 +1,210 @@
-.sidebar {
-  width: 360px;
+.sidebarContainer {
   display: flex;
   flex-direction: column;
-  gap: 32px; 
+  background-color: #f7f7f7;
+  border-radius: 20px;
+  padding: 24px;
+  width: 360px;
+  height: max-content;
+}
+
+.sidebar {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 40px;
+}
+
+.label {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #6c717b;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputWrapper .input:not(:placeholder-shown) ~ .icon {
+  background-color: #101828;
+}
+
+.input {
+  width: 312px;
+  height: 56px;
+  padding-left: 42px;
+  padding-right: 18px;
+  background-color: #ffffff;
+  color: #101828;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.input:focus {
+  background-color: #ffffff;
+}
+
+.input::placeholder {
+  color: #6c717b;
+}
+
+.input:focus::placeholder {
+  color: transparent;
+}
+
+.icon {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+  -webkit-mask: url("/icons/map.svg") no-repeat center / contain;
+  mask: url("/icons/map.svg") no-repeat center / contain;
+  background-color: #6c717b;
+  transition: background-color 0.2s ease;
+}
+
+.filtersHeading {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  color: #101828;
+  margin-bottom: 24px;
+}
+
+.filtersBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.filterSection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filterTitle {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #6c717b;
+  padding: 0;
+  margin: 0;
+}
+
+.radioList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #101828;
+  user-select: none;
+}
+
+.radioInput {
+  width: 20px;
+  height: 20px;
+  accent-color: #475467;
+  cursor: pointer;
+}
+
+.buttonsGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.btnBase {
+  width: 100%;
+  height: 56px;
+  border-radius: 200px;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.buttonSubmit {
+  background-color: #829b91;
+  color: #ffffff;
+  padding: 16px 60px;
+  border: none;
+  box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+}
+
+.buttonSubmit:hover {
+  background-color: #6d7b75;
+}
+
+.buttonSubmit:active {
+  transform: scale(0.99);
+}
+
+.buttonClear {
+  background-color: transparent;
+  color: #101828;
+  padding: 16px 32px;
+  border: 1px solid #DADDE1;
+  gap: 4px; 
+}
+
+.buttonClear:hover {
+  background-color: #f9fafb;
+}
+
+.iconCancel {
+  width: 12px;
+  height: 12px;
   flex-shrink: 0;
+  display: block;
+  margin-right: 8px;
+}
+
+.clearIcon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
