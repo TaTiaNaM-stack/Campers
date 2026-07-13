@@ -5,7 +5,7 @@ import { useInfiniteQuery } from '@tanstack/react-query';
 import { useSearchParams } from 'next/navigation';
 import { useCamperFilters } from '@/hooks/useCamperFilters';
 import FilterSidebar from '../FilterSidebar/FilterSidebar';
-// import CamperCard from '../CamperCard/CamperCard';
+import CamperCard from '../CamperCard/CamperCard';
 import Loader from '../Loader/Loader';
 import ErrorBlock from '../ErrorBlock/ErrorBlock';
 import { api } from '@/services/api';
@@ -76,9 +76,9 @@ export default function CampersSection() {
                     <p className={styles.message}>No campers found matching your criteria.</p>
                 ) : (
                     <>
-                        {/* {allCampers.map((camper) => (
+                        {allCampers.map((camper) => (
                             <CamperCard key={camper.id} data={camper} />
-                        ))} */}
+                        ))}
 
                         {hasNextPage && (
                             <button
