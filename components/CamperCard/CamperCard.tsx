@@ -7,10 +7,10 @@ interface CamperCardProps {
 }
 
 export default function CamperCard({ data }: CamperCardProps) {
-    const mainImage = data.coverImage || "/logo.png";
+    const mainImage = data.coverImage || "/logo.svg";
     const formattedPrice = `€${data.price.toFixed(0)}`;
     const capitalize = (str: string) => str ? str.charAt(0).toUpperCase() + str.slice(1) : '';
-    console.log(mainImage)
+    
     return (
         <div className={styles.card}>
 

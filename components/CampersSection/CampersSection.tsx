@@ -2,10 +2,9 @@
 
 import { Camper } from '@/types/types';
 import { useInfiniteQuery } from '@tanstack/react-query';
-import { useSearchParams } from 'next/navigation';
 import { useCamperFilters } from '@/hooks/useCamperFilters';
 import FilterSidebar from '../FilterSidebar/FilterSidebar';
-import CamperCard from '../CampersCard/CamperCard';
+import CamperCard from '../CamperCard/CamperCard';
 import Loader from '../Loader/Loader';
 import ErrorBlock from '../ErrorBlock/ErrorBlock';
 import { api } from '@/services/api';
@@ -42,7 +41,6 @@ export default function CampersSection() {
                     perPage: 4,
                 },
             });
-            console.log('API response:', response.data);
 
             return response.data;
         },

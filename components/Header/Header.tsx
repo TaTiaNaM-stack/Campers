@@ -10,7 +10,7 @@ export default function Header() {
         <header className={css.header}>
             <Link href="/" className={css.logoLink}>
                 <Image
-                    src="/logo.png"
+                    src="/logo.svg"
                     alt="TravelTrucks"
                     width={136}
                     height={16}
