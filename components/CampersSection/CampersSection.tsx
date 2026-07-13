@@ -5,15 +5,13 @@ import { useInfiniteQuery } from '@tanstack/react-query';
 import { useSearchParams } from 'next/navigation';
 import { useCamperFilters } from '@/hooks/useCamperFilters';
 import FilterSidebar from '../FilterSidebar/FilterSidebar';
-import CamperCard from '../CamperCard/CamperCard';
+import CamperCard from '../CampersCard/CamperCard';
 import Loader from '../Loader/Loader';
 import ErrorBlock from '../ErrorBlock/ErrorBlock';
 import { api } from '@/services/api';
 import styles from './CampersSection.module.css';
 
 export default function CampersSection() {
-    const searchParams = useSearchParams();
-
     const activeFilters = useCamperFilters();
 
     const {
@@ -29,7 +27,7 @@ export default function CampersSection() {
         queryFn: async ({ pageParam = 1, queryKey }) => {
             const filters = queryKey[1] || {};
 
-             const cleanParams = Object.fromEntries(
+            const cleanParams = Object.fromEntries(
                 Object.entries(filters).filter(([_, value]) => {
                     if (value === '' || value === null || value === undefined) return false;
                     if (Array.isArray(value) && value.length === 0) return false;
@@ -41,18 +39,20 @@ export default function CampersSection() {
                 params: {
                     ...cleanParams,
                     page: pageParam,
-                    limit: 4,
+                    perPage: 4,
                 },
             });
+            console.log('API response:', response.data);
 
             return response.data;
         },
 
         initialPageParam: 1,
 
-        getNextPageParam: (lastPage, allPages) => {
-            const lastPageItems = Array.isArray(lastPage) ? lastPage : lastPage.items || [];
-            return lastPageItems.length === 4 ? allPages.length + 1 : undefined;
+        getNextPageParam: (lastPage) => {
+            return lastPage.page < lastPage.totalPages
+                ? lastPage.page + 1
+                : undefined;
         },
     });
 
@@ -60,9 +60,9 @@ export default function CampersSection() {
         refetch();
     };
 
-    const allCampers: Camper[] = data?.pages.flatMap((page) =>
-        Array.isArray(page) ? page : page.items || []
-    ) || [];
+    const allCampers: Camper[] =
+        data?.pages.flatMap((page) => page.campers) ?? [];
+        console.log("allCampers:", allCampers);
 
     return (
         <div className={styles.container}>
@@ -76,6 +76,9 @@ export default function CampersSection() {
                     <p className={styles.message}>No campers found matching your criteria.</p>
                 ) : (
                     <>
+                     <h1 style={{ color: "red", fontSize: 50 }}>
+        TEST
+    </h1>
                         {allCampers.map((camper) => (
                             <CamperCard key={camper.id} data={camper} />
                         ))}

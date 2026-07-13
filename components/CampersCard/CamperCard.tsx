@@ -7,10 +7,10 @@ interface CamperCardProps {
 }
 
 export default function CamperCard({ data }: CamperCardProps) {
-    const mainImage = data.gallery?.[0]?.thumb || '/images/placeholder.png';
+    const mainImage = data.coverImage || "/logo.png";
     const formattedPrice = `€${data.price.toFixed(0)}`;
     const capitalize = (str: string) => str ? str.charAt(0).toUpperCase() + str.slice(1) : '';
-
+    console.log(mainImage)
     return (
         <div className={styles.card}>
 
@@ -18,10 +18,9 @@ export default function CamperCard({ data }: CamperCardProps) {
                 <Image
                     src={mainImage}
                     alt={data.name}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 290px"
+                    width={290}
+                    height={240}
                     className={styles.image}
-                    priority={false}
                 />
             </div>
 
@@ -68,5 +67,6 @@ export default function CamperCard({ data }: CamperCardProps) {
                 </button>
             </div>
         </div>
+
     );
 }
