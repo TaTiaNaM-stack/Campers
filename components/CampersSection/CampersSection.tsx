@@ -5,7 +5,7 @@ import { useInfiniteQuery } from '@tanstack/react-query';
 import { useCamperFilters } from '@/hooks/useCamperFilters';
 import FilterSidebar from '../FilterSidebar/FilterSidebar';
 import CamperCard from '../CamperCard/CamperCard';
-import Loader from '../Loader/Loader';
+import PageLoader from '../PageLoader/PageLoader';
 import ErrorBlock from '../ErrorBlock/ErrorBlock';
 import { api } from '@/services/api';
 import styles from './CampersSection.module.css';
@@ -19,6 +19,7 @@ export default function CampersSection() {
         hasNextPage,
         isFetchingNextPage,
         isLoading,
+        isFetching,
         isError,
         refetch,
     } = useInfiniteQuery({
@@ -63,11 +64,10 @@ export default function CampersSection() {
 
     return (
         <div className={styles.container}>
+             {isFetching && <PageLoader />}
             <FilterSidebar onFilterChange={handleFilterChange} />
             <div className={styles.cardsList}>
-                {isLoading ? (
-                    <Loader />
-                ) : isError ? (
+                {isError ? (
                     <ErrorBlock onRetry={handleFilterChange} onCancel={handleFilterChange} />
                 ) : allCampers.length === 0 ? (
                     <p className={styles.message}>No campers found matching your criteria.</p>

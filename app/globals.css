@@ -35,7 +35,8 @@ a {
 
 label,
 button,
-input {
+input,
+Link {
   cursor: pointer;
 }
 

@@ -1,5 +1,6 @@
 import { Camper } from '@/types/types';
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from './CamperCard.module.css';
 
 interface CamperCardProps {
@@ -66,9 +67,11 @@ export default function CamperCard({ data }: CamperCardProps) {
                     </div>
                 </div>
 
-                <button type="button" className={`${styles.showMoreBtn} ${styles.middleBoldText}`}>
+                <Link 
+                    href={`/campers/${data.id}`}
+                    className={`${styles.showMoreBtn} ${styles.middleBoldText}`}>
                     Show more
-                </button>
+                </Link>
             </div>
         </div>
 
