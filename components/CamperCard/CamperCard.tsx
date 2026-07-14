@@ -26,27 +26,31 @@ export default function CamperCard({ data }: CamperCardProps) {
 
             <div className={styles.content}>
                 <div className={styles.headerRow}>
-                    <h2 className={styles.title}>{data.name}</h2>
-                    <span className={styles.price}>{formattedPrice}</span>
+                    <h2 className={`${styles.title} ${styles.header}`}>{data.name}</h2>
+                    <span className={`${styles.price} ${styles.header}`}>{formattedPrice}</span>
                 </div>
 
                 <div className={styles.metaRow}>
                     <div className={styles.rating}>
                         <div className={styles.starIcon} />
-                        <span className={styles.ratingText}>
+                        <span className={`${styles.ratingText} ${styles.text}`}>
                             {data.rating}({data.totalReviews} Reviews)
                         </span>
                     </div>
                     <div className={styles.location}>
                         <div className={styles.locationIcon} />
-                        <span className={styles.locationText}>{data.location}</span>
+                        <span className={`${styles.locationText} ${styles.text}`}>
+                            {data.location}
+                        </span>
                     </div>
                 </div>
 
-                <p className={styles.description}>{data.description}</p>
+                <p className={`${styles.description} ${styles.text}`}>
+                    {data.description}
+                </p>
 
                 <div className={styles.categories}>
-                    <div className={styles.badge}>
+                    <div className={`${styles.badge} ${styles.middleBoldText}`}>
                         <div className={`${styles.badgeIcon} ${styles.engineIcon}`} />
                         <span>{capitalize(data.engine)}</span>
                     </div>
@@ -62,7 +66,7 @@ export default function CamperCard({ data }: CamperCardProps) {
                     </div>
                 </div>
 
-                <button type="button" className={styles.showMoreBtn}>
+                <button type="button" className={`${styles.showMoreBtn} ${styles.middleBoldText}`}>
                     Show more
                 </button>
             </div>

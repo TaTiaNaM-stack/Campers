@@ -15,7 +15,6 @@
     display: flex;
     gap: 32px;
     margin-right: 625px;
-    font-family: var(--font-family);
     font-weight: 500;
     font-size: 16px;
     line-height: 150%;
@@ -23,5 +22,5 @@
 }
 
 .navLink:focus {
-    color: var(--grey-green);
+    color: #829B91;
 }

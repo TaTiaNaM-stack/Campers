@@ -60,7 +60,6 @@ export default function CampersSection() {
 
     const allCampers: Camper[] =
         data?.pages.flatMap((page) => page.campers) ?? [];
-        console.log("allCampers:", allCampers);
 
     return (
         <div className={styles.container}>
@@ -73,10 +72,7 @@ export default function CampersSection() {
                 ) : allCampers.length === 0 ? (
                     <p className={styles.message}>No campers found matching your criteria.</p>
                 ) : (
-                    <>
-                     <h1 style={{ color: "red", fontSize: 50 }}>
-        TEST
-    </h1>
+                    <>                    
                         {allCampers.map((camper) => (
                             <CamperCard key={camper.id} data={camper} />
                         ))}

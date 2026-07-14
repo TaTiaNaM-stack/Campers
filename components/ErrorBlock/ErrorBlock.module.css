@@ -30,13 +30,13 @@
   font-size: 24px;
   font-weight: 600;
   color: #D92D20;
-  margin: 0 0 20px 0;
+  margin-bottom: 20px;
 }
 
 .subtitle {
   font-size: 14px;
   color: #B42318;
-  margin: 0 0 40px 0;
+  margin-bottom: 40px;
   line-height: 1.5;
 }
 
@@ -55,8 +55,7 @@
   font-size: 14px;
   font-weight: 500;
   border: none;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
+
 }
 
 .retryBtn:hover {
@@ -71,7 +70,6 @@
   font-size: 14px;
   font-weight: 500;
   border: 1px solid #FDA29B; 
-  cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
@@ -79,6 +77,3 @@
   background-color: #FEE4E2;
 }
 
-.retryBtn:active, .cancelBtn:active{
-  transform: scale(0.98);
-}

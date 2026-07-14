@@ -28,7 +28,6 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
-    font-family: var(--font-family);
     font-weight: 600;
     color: #f7f7f7;
 }
@@ -63,16 +62,14 @@
     width: 173px;
     height: 56px;
     background-color: #829B91;
-    font-family: var(--font-family);
     font-weight: 500;
     font-size: 16px;
     white-space: nowrap;
     line-height: 150%;
     letter-spacing: -0.01em;
-    color: var(--white);
+    color: #ffffff;
 }
 
 .ctaButton:hover, .ctaButton:focus, .ctaButton:active{
     background-color: #6D7B75;
-    cursor: pointer;
 }
