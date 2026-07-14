@@ -72,10 +72,10 @@ export default function CampersSection() {
                 ) : allCampers.length === 0 ? (
                     <p className={styles.message}>No campers found matching your criteria.</p>
                 ) : (
-                    <>                    
+                    <>                   
                         {allCampers.map((camper) => (
                             <CamperCard key={camper.id} data={camper} />
-                        ))}
+                        ))}                       
 
                         {hasNextPage && (
                             <button
