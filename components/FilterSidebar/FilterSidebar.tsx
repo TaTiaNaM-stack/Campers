@@ -3,6 +3,7 @@ import { useCamperFilters } from '@/hooks/useCamperFilters';
 import { FILTER_SECTIONS } from '@/constants/filters';
 import styles from './FilterSidebar.module.css';
 import Image from 'next/image';
+import { useRef } from 'react';
 
 interface FilterSidebarProps {
     onFilterChange: () => void;
@@ -12,6 +13,7 @@ export default function FilterSidebar({ onFilterChange }: FilterSidebarProps) {
     const router = useRouter();
     const pathname = usePathname();
     const filters = useCamperFilters();
+    const formRef = useRef<HTMLFormElement>(null);
 
     const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -26,25 +28,28 @@ export default function FilterSidebar({ onFilterChange }: FilterSidebarProps) {
                 }
             }
         });
-
+        
         router.push(`${pathname}?${params.toString()}`, { scroll: false });
         onFilterChange();
     };
 
     const handleClearAll = () => {
-        router.push(pathname, { scroll: false });
-        onFilterChange();
+        
+        router.replace(pathname, { scroll: false });
+        formRef.current?.reset();
+        onFilterChange();       
     };
 
     return (
         <div className={styles.sidebarContainer}>
-            <form onSubmit={handleSearch} className={styles.sidebar}>
+            <form onSubmit={handleSearch} className={styles.sidebar} ref={formRef}>
                 <div className={styles.inputGroup}>
                     <label className={styles.label}>Location</label>
                     <div className={styles.inputWrapper}>
                         <input
                             type="text"
                             name="location"
+                            key={`location-${filters.location || 'empty'}`}
                             defaultValue={filters.location}
                             placeholder="City"
                             className={styles.input}
@@ -58,15 +63,16 @@ export default function FilterSidebar({ onFilterChange }: FilterSidebarProps) {
                 <div className={styles.filtersBlock}>
                     {FILTER_SECTIONS.map((section) => (
                         <div key={section.id} className={styles.filterSection}>
-                            <h3 className={styles.filterTitle}>{section.title}</h3>
+                            <h3 className={`${styles.filterTitle} ${styles.filterTxt}`}>{section.title}</h3>
                             <div className={styles.radioList}>
                                 {section.items.map((item) => (
-                                    <label key={item.id} className={styles.radioLabel}>
+                                    <label key={item.id} className={`${styles.radioLabel} ${styles.filterTxt}`}>
                                         <input
                                             type="radio"
                                             name={section.id}
                                             value={item.id}
-                                            key={filters[section.id]}
+                                            // key={filters[section.id]}
+                                            key={`${section.id}-${filters[section.id] || 'none'}`}
                                             defaultChecked={filters[section.id] === item.id}
                                             className={styles.radioInput}
                                         />

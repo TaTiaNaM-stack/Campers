@@ -4,12 +4,6 @@
   padding: 48px 64px;
 }
 
-/* .cardsList{
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-} */
-
 .cardsList {
   display: flex;
   flex-direction: column;
@@ -21,6 +15,7 @@
 .loadMoreBtn {
   border: 1px solid #dadde1;
   border-radius: 200px;
+  background-color: #ffffff;
   padding: 16px 32px;
   min-height: 56px;
   width: 145px;
@@ -28,4 +23,16 @@
   font-size: 16px;
   line-height: 150%;
   letter-spacing: -0.01em;
+  outline: none;
+  transition: border-color 0.2s ease;
+   user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.loadMoreBtn:hover {
+  border-color: #6d7b75;
 }
