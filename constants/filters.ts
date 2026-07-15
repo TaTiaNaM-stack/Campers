@@ -17,9 +17,9 @@ export const FILTER_SECTIONS: FilterSection[] = [
     title: 'Camper form',
     items: [
       { id: 'alcove', label: 'Alcove' },
-      { id: 'panelVan', label: 'Panel Van' },
+      { id: 'panel_van', label: 'Panel Van' },
       { id: 'integrated', label: 'Integrated' },
-      { id: 'semiIntegrated', label: 'Semi Integrated' },
+      { id: 'semi_integrated', label: 'Semi Integrated' },
     ],
   },
   {

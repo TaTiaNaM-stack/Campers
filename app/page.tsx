@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from 'next/link';
+import LinkBtn from '@/components/LinkBtn/LinkBtn';
 import css from './page.module.css';
 
 export default function Home() {
@@ -24,9 +24,7 @@ export default function Home() {
                 You can find everything you want in our catalog
               </p>
             </div>
-            <Link href="/campers" className={css.ctaButton}>
-              View Now
-            </Link>
+            <LinkBtn text="View now" width="173px" />
           </div>    
       </section>
     </main>

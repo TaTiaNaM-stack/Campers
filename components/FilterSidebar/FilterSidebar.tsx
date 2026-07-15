@@ -1,8 +1,8 @@
 import { useRouter, usePathname } from 'next/navigation';
 import { useCamperFilters } from '@/hooks/useCamperFilters';
 import { FILTER_SECTIONS } from '@/constants/filters';
+import ClearBtn from '../ClearBtn/ClearBtn';
 import styles from './FilterSidebar.module.css';
-import Image from 'next/image';
 import { useRef } from 'react';
 
 interface FilterSidebarProps {
@@ -15,7 +15,7 @@ export default function FilterSidebar({ onFilterChange }: FilterSidebarProps) {
     const filters = useCamperFilters();
     const formRef = useRef<HTMLFormElement>(null);
 
-    const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSearch = (e: React.SubmitEvent<HTMLFormElement>) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
         const params = new URLSearchParams();
@@ -31,13 +31,6 @@ export default function FilterSidebar({ onFilterChange }: FilterSidebarProps) {
         
         router.push(`${pathname}?${params.toString()}`, { scroll: false });
         onFilterChange();
-    };
-
-    const handleClearAll = () => {
-        
-        router.replace(pathname, { scroll: false });
-        formRef.current?.reset();
-        onFilterChange();       
     };
 
     return (
@@ -71,7 +64,6 @@ export default function FilterSidebar({ onFilterChange }: FilterSidebarProps) {
                                             type="radio"
                                             name={section.id}
                                             value={item.id}
-                                            // key={filters[section.id]}
                                             key={`${section.id}-${filters[section.id] || 'none'}`}
                                             defaultChecked={filters[section.id] === item.id}
                                             className={styles.radioInput}
@@ -85,17 +77,8 @@ export default function FilterSidebar({ onFilterChange }: FilterSidebarProps) {
                 </div>
 
                 <div className={styles.buttonsGroup}>
-                    <button type="submit" className={`${styles.btnBase} ${styles.buttonSubmit}`}>Search</button>
-                    <button type="button" className={`${styles.btnBase} ${styles.buttonClear}`} onClick={handleClearAll}>
-                        <Image
-                            src="/icons/cancel.svg"
-                            alt="Clear"
-                            width={12}
-                            height={12}
-                            className={styles.iconCancel}
-                        />
-                        Clear filters
-                    </button>
+                    <button type="submit" className={styles.buttonSubmit}>Search</button>                   
+                    <ClearBtn onClear={onFilterChange} formRef={formRef} />
                 </div>
             </form>
         </div>

@@ -1,75 +1,57 @@
 .hero {
-  position: relative; 
+  position: relative;
   width: 100%;
-  min-height: 844px; 
+  height: calc(100vh);
+  min-height: 600px;
   display: flex;
-  align-items: center;
-  padding: 72px 48px;
+  align-items: flex-start;
+  padding: 195px 64px 72px 64px;
   overflow: hidden;
 }
 
 .backgroundImage {
   object-fit: cover;
-  object-position: center -75px; 
+  object-position: center -75px;
   z-index: 1;
 }
 
 .gradientOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
   z-index: 2;
 }
 
-.content{
-    position: relative;
-    z-index: 3;
-    margin-top: 195px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    font-weight: 600;
-    color: #f7f7f7;
+.container {
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 40px;
+
 }
 
-.title {   
-    font-size: 48px;
-    line-height: 67%;
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-weight: 600;
+  color: #f7f7f7;
 }
 
-.description{
-    font-size: 24px;
-    line-height: 133%;
+.title {
+  font-size: 48px;
+  line-height: 67%;
 }
 
-.container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 40px;
+.description {
+  font-size: 24px;
+  line-height: 133%;
 }
 
-.ctaButton{
-    position: relative;
-    z-index: 3;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 200px;
-    border: none;
-    padding: 16px 60px;
-    width: 173px;
-    height: 56px;
-    background-color: #829B91;
-    font-weight: 500;
-    font-size: 16px;
-    white-space: nowrap;
-    line-height: 150%;
-    letter-spacing: -0.01em;
-    color: #ffffff;
-}
 
-.ctaButton:hover, .ctaButton:focus, .ctaButton:active{
-    background-color: #6D7B75;
-}
