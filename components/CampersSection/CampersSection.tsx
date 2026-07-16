@@ -20,7 +20,6 @@ export default function CampersSection() {
         hasNextPage,
         isFetchingNextPage,
         isLoading,
-        isFetching,
         isError,
         refetch,
     } = useInfiniteQuery({
@@ -78,7 +77,7 @@ export default function CampersSection() {
                 ) : (
                     <>
                         {allCampers.map((camper) => (
-                            <CamperCard key={camper.id} data={camper} />
+                            <CamperCard key={camper.id} cars={camper} />
                         ))}
 
                         {hasNextPage && (

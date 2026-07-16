@@ -1,0 +1,38 @@
+.metaRow {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.rating,
+.location {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+}
+
+.starIcon,
+.locationIcon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+.starIcon {
+  -webkit-mask: url("/icons/star.svg") no-repeat center / contain;
+  mask: url("/icons/star.svg") no-repeat center / contain;
+  background-color: #ffc531;
+}
+
+.locationIcon {
+  -webkit-mask: url("/icons/map.svg") no-repeat center / contain;
+  mask: url("/icons/map.svg") no-repeat center / contain;
+  background-color: #101828;
+}

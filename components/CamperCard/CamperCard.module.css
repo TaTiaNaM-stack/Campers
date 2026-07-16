@@ -42,7 +42,7 @@
   line-height: 133%;
 }
 
-.metaRow {
+/* .metaRow {
   display: flex;
   gap: 16px;
   margin-bottom: 24px;
@@ -79,7 +79,7 @@
   -webkit-mask: url("/icons/map.svg") no-repeat center / contain;
   mask: url("/icons/map.svg") no-repeat center / contain;
   background-color: #101828;
-}
+} */
 
 .description {
   color: #475467;
