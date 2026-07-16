@@ -1,0 +1,45 @@
+.container {
+  width: 1440px; /* Або 100% з max-width за макетом */
+  margin: 0 auto;
+  padding: 40px 64px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 40px; /* Зазор між верхньою та нижньою частинами */
+}
+
+/* Верхня секція: Галерея + Текст */
+.topSection {
+  display: flex;
+  gap: 40px;
+  width: 100%;
+}
+
+.galleryColumn {
+  width: 600px; /* Зразкова ширина великого фото з макета, підкоригуйте за Figma */
+  flex-shrink: 0;
+}
+
+.infoColumn {
+  flex-grow: 1;
+}
+
+/* Нижня секція: Деталі, Відгуки + Форма */
+.bottomSection {
+  display: flex;
+  gap: 40px;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 44px; /* Відступ між блоком характеристик та відгуками */
+  flex-grow: 1;
+}
+
+.rightColumn {
+  width: 448px; /* Ширина картки форми з макета */
+  flex-shrink: 0;
+}

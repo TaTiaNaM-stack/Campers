@@ -1,0 +1,74 @@
+.formContainer {
+  background: #F7F7F7; /* Тот самый светло-серый фон из Figma */
+  border-radius: 12px;
+  padding: 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.formTitle {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  color: #101828;
+  margin: 0 0 8px 0;
+}
+
+.formSubtitle {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #6C717B;
+  margin: 0 0 24px 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px; /* Отступы между инпутами и кнопкой */
+}
+
+.input {
+  width: 100%;
+  height: 56px;
+  background: #FFFFFF;
+  border: 1px solid rgba(16, 24, 40, 0.05); /* Очень легкая рамка */
+  border-radius: 12px;
+  padding: 0 18px;
+  font-family: var(--font-family);
+  font-size: 16px;
+  color: #101828;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+.input:focus {
+  border-color: #101828; /* Темная рамка при клике */
+}
+
+.input::placeholder {
+  color: #6C717B;
+}
+
+.submitBtn {
+  background: #E44848; /* Фирменная красная кнопка GoIT */
+  color: #FFFFFF;
+  border: none;
+  border-radius: 200px;
+  height: 56px;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 10px; /* Дополнительный зазор перед кнопкой */
+}
+
+.submitBtn:hover {
+  background: #C93B3B;
+}

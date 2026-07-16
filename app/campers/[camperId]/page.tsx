@@ -1,5 +1,5 @@
 import { api } from '@/services/api';
-import { CamperCar } from '@/types/types';
+import { CamperCar, CamperReview } from '@/types/types';
 import CamperGallery from '@/components/CamperGallery/CamperGallery'
 import CamperMainInfo from '@/components/CamperMainInfo/CamperMainInfo';
 import VehicleDetails from '@/components/VehicleDetails/VehicleDetails';
@@ -17,8 +17,12 @@ export default async function CamperDetailPage({ params }: CamperPageProps) {
 
   // 2. Скачуємо чисті дані про цю машину з бекенду GoIT
 
-  const response = await api.get<CamperCar>(`/campers/${camperId}`);
-  const camper = response.data;
+  const [camperResponse, reviewsResponse] = await Promise.all([
+    api.get<CamperCar>(`/campers/${camperId}`),
+    api.get<CamperReview[]>(`/campers/${camperId}/reviews`)
+  ]);
+  const camper = camperResponse.data;
+  const reviews = reviewsResponse.data; 
 
   return (
     /* 🎯 Головний семантичний тег <main> для всієї сторінки деталей */
@@ -42,7 +46,7 @@ export default async function CamperDetailPage({ params }: CamperPageProps) {
         {/* Ліва колонка: Спочатку характеристики, потім відгуки */}
         <div className={styles.leftColumn}>
           <VehicleDetails data={camper} />
-          <CamperReviews data={camper} />
+          <CamperReviews data={reviews} />
         </div>
         
         {/* Права колонка: Форма бронювання */}

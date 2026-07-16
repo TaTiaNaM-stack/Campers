@@ -1,12 +1,12 @@
-import { CamperImage } from '@/types/types';
+import { CamperReview } from '@/types/types';
 import styles from './CamperReviews.module.css';
 
 interface CamperReviewsProps {
-  data: CamperImage; // Приймаємо нашу мандаринку-кемпер, щоб дістати з неї дольку reviews
+  data: CamperReview[]; // Приймаємо нашу мандаринку-кемпер, щоб дістати з неї дольку reviews
 }
 
 export default function CamperReviews({ data }: CamperReviewsProps) {
-  const reviews = data.reviews || [];
+  const reviews = data;
 
   // Якщо відгуків взагалі немає в базі
   if (reviews.length === 0) {
