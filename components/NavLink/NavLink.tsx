@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import css from "./NavLink.module.css";
+import styles from "./NavLink.module.css";
 
 type NavLinkProps = {
   href: string;
@@ -15,12 +15,14 @@ export default function NavLink({
 }: NavLinkProps) {
   const pathname = usePathname();
 
-  const isActive = pathname === href;
+  const isActive = href === "/" 
+    ? pathname === href 
+    : pathname.startsWith(href);
 
   return (
     <Link
       href={href}
-      className={isActive ? css.active : css.link}
+      className={isActive ? styles.active : styles.link}
     >
       {children}
     </Link>

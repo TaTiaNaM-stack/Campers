@@ -1,5 +1,6 @@
 import { api } from '@/services/api';
-import { Camper } from '@/types/types';
+import { CamperCar } from '@/types/types';
+import CamperGallery from '@/components/CamperGallery/CamperGallery'
 import CamperMainInfo from '@/components/CamperMainInfo/CamperMainInfo';
 import VehicleDetails from '@/components/VehicleDetails/VehicleDetails';
 import CamperReviews from '@/components/CamperReviews/CamperReviews';
@@ -7,36 +8,45 @@ import BookingForm from '@/components/BookingForm/BookingForm';
 import styles from './page.module.css';
 
 interface CamperPageProps {
-  params: Promise<{ id: string }>;
+  params: Promise<{ camperId: string }>;
 }
 
 export default async function CamperDetailPage({ params }: CamperPageProps) {
   // 1. Отримуємо індивідуальний ID кемпера з URL-рядка
-  const { id } = await params;
+  const { camperId } = await params;
 
   // 2. Скачуємо чисті дані про цю машину з бекенду GoIT
-  const response = await api.get<Camper>(`/campers/${id}`);
+
+  const response = await api.get<CamperCar>(`/campers/${camperId}`);
   const camper = response.data;
 
   return (
     /* 🎯 Головний семантичний тег <main> для всієї сторінки деталей */
     <main className={styles.container}>
       
-      {/* 📦 БЛОК 1: Фотогалерея, Назва, Рейтинг, Ціна та Опис */}
-      <CamperMainInfo data={camper} />
+      {/* 📦 ВЕРХНЯ ЧАСТИНА СТОРІНКИ (Двоколонкова сітка за макетом) */}
+      <div className={styles.topSection}>
+        {/* Ліва колонка: Велика галерея зображень */}
+        <div className={styles.galleryColumn}>
+          <CamperGallery gallery={camper.gallery} alt={camper.name} />
+        </div>
 
-      {/* 📦 БЛОК 2: Круглі бейджі характеристик та Автоматична таблиця */}
-      <VehicleDetails data={camper} />
+        {/* Права колонка: Назва, рейтинг, ціна та опис машини */}
+        <div className={styles.infoColumn}>
+          <CamperMainInfo data={camper} />
+        </div>
+      </div>
 
-      {/* 💬 БЛОК 3: Нижня частина сторінки (Дві колонки за Figma) */}
-      <div className={styles.reviewBlock}>
-        {/* Колонка відгуків зліва */}
-        <div className={styles.reviewSection}>
+      {/* 📦 НИЖНЯ ЧАСТИНА СТОРІНКИ (Дві великі колонки) */}
+      <div className={styles.bottomSection}>
+        {/* Ліва колонка: Спочатку характеристики, потім відгуки */}
+        <div className={styles.leftColumn}>
+          <VehicleDetails data={camper} />
           <CamperReviews data={camper} />
         </div>
         
-        {/* Колонка форми бронювання справа */}
-        <div className={styles.bookingForm}>
+        {/* Права колонка: Форма бронювання */}
+        <div className={styles.rightColumn}>
           <BookingForm />
         </div>
       </div>
