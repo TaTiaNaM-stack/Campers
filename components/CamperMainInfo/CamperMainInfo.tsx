@@ -6,24 +6,14 @@ interface CamperMainInfoProps {
   camper: CamperCar;
 }
 
-// 🎯 В аргументах только один пропс, который мы сразу превращаем в понятное слово camper
 export default function CamperMainInfo({ camper }: CamperMainInfoProps) {
-  
-  // 🎯 Деструктуризация внутри функции — чисто, наглядно и без дублирования
   const { name, price, description } = camper;
 
   return (
     <div className={styles.infoContainer}>
-      {/* Название кемпера */}
-      <h1 className={styles.title}>{name}</h1>
-
-      {/* Передаем сугубо типизированный объект camper в рейтинг */}
+      <h2 className={`${styles.title} ${styles.txt}`}>{name}</h2>
       <Rating data={camper} />
-
-      {/* Цена кемпера */}
-      <div className={styles.price}>€{price.toFixed(0)}</div>
-
-      {/* Описание кемпера */}
+      <h3 className={`${styles.price} ${styles.txt}`}>€{price.toFixed(0)}</h3>
       <p className={styles.description}>{description}</p>
     </div>
   );

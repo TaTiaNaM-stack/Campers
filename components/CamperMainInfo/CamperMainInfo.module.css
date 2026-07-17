@@ -1,0 +1,29 @@
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  border-radius: 16px;
+  background-color: #f7f7f7;
+}
+
+.txt {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+}
+
+.title {
+  margin-bottom: 8px;
+}
+
+.price {
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
+
+.description {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #475467;
+}
