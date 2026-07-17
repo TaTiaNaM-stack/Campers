@@ -10,7 +10,7 @@ export interface Camper {
   transmission: string;
   engine: string;
   amenities: string[];
-  coverImage: string;
+  coverImage?: string;
 }
 
 export interface CamperImage {

@@ -1,0 +1,62 @@
+.galleryContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 638px;
+  flex-shrink: 0;
+}
+
+.mainImageWrapper {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.sideGrid {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  width: 100%;
+}
+
+/* Перетворюємо обгортку на чисту кнопку */
+.sideImageWrapper {
+  position: relative;
+  flex: 1; 
+  height: 120px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: transparent;
+  border: 2px solid transparent; /* Прозора рамка за замовчуванням */
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sideImageWrapper:hover {
+  opacity: 0.8; /* Легке заліснення при наведенні */
+}
+
+/* СТИЛЬ ДЛЯ АКТИВНОЇ КАРТКИ: додає ефект виділення як у Figma */
+.activeThumb {
+  border-color: #E44848; /* Фірмовий червоний контур навколо вибраного фото */
+  transform: scale(0.98); /* Легке натискання */
+}
+
+.image {
+  object-fit: cover;
+}
+
+.noImages {
+  width: 100%;
+  height: 420px;
+  background: #F2F4F7;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6C717B;
+  font-family: var(--font-family);
+}

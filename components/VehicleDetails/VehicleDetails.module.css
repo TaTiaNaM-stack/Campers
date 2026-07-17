@@ -1,0 +1,97 @@
+.detailsContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.sectionTitle {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  color: #101828;
+  margin: 0 0 24px 0;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #EAEAEA;
+  margin: 0 0 24px 0;
+  width: 100%;
+}
+
+/* Сітка для круглих бейджів */
+.badgesGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 44px; /* Великий відступ перед таблицею за макетом */
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #F2F4F7;
+  border-radius: 100px;
+  padding: 12px 18px;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: #101828;
+}
+
+.badgeIcon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  display: inline-block;
+  background-color: #101828;
+}
+
+/* Іконки через CSS маски (використовуємо ваші файли з public/icons/) */
+.transmissionIcon {
+  -webkit-mask: url('/icons/transmission.svg') no-repeat center / contain;
+  mask: url('/icons/transmission.svg') no-repeat center / contain;
+}
+
+.engineIcon {
+  -webkit-mask: url('/icons/petrol.svg') no-repeat center / contain;
+  mask: url('/icons/petrol.svg') no-repeat center / contain;
+}
+
+.acIcon {
+  -webkit-mask: url('/icons/ac.svg') no-repeat center / contain;
+  mask: url('/icons/ac.svg') no-repeat center / contain;
+}
+
+/* Стилізація таблиці характеристик */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table tr {
+  height: 40px; /* Висота рядка за макетом */
+}
+
+/* Текст лівої колонки таблиці (назви параметрів) */
+.label {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: #101828;
+  text-align: left;
+}
+
+/* Текст правої колонки таблиці (значення параметрів) */
+.value {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: #101828;
+  text-align: right;
+}

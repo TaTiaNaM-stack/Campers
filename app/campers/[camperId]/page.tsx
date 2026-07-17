@@ -12,45 +12,30 @@ interface CamperPageProps {
 }
 
 export default async function CamperDetailPage({ params }: CamperPageProps) {
-  // 1. Отримуємо індивідуальний ID кемпера з URL-рядка
   const { camperId } = await params;
-
-  // 2. Скачуємо чисті дані про цю машину з бекенду GoIT
 
   const [camperResponse, reviewsResponse] = await Promise.all([
     api.get<CamperCar>(`/campers/${camperId}`),
     api.get<CamperReview[]>(`/campers/${camperId}/reviews`)
   ]);
   const camper = camperResponse.data;
-  const reviews = reviewsResponse.data; 
+  const reviews = reviewsResponse.data;
 
   return (
-    /* 🎯 Головний семантичний тег <main> для всієї сторінки деталей */
     <main className={styles.container}>
-      
-      {/* 📦 ВЕРХНЯ ЧАСТИНА СТОРІНКИ (Двоколонкова сітка за макетом) */}
-      <div className={styles.topSection}>
-        {/* Ліва колонка: Велика галерея зображень */}
-        <div className={styles.galleryColumn}>
-          <CamperGallery gallery={camper.gallery} alt={camper.name} />
-        </div>
 
-        {/* Права колонка: Назва, рейтинг, ціна та опис машини */}
-        <div className={styles.infoColumn}>
-          <CamperMainInfo data={camper} />
+      <div className={styles.topSection}>
+        <CamperGallery gallery={camper.gallery} alt={camper.name} />
+        <div className={styles.rightTop}>
+          <CamperMainInfo camper={camper} />
+          <VehicleDetails data={camper} />
         </div>
       </div>
 
-      {/* 📦 НИЖНЯ ЧАСТИНА СТОРІНКИ (Дві великі колонки) */}
       <div className={styles.bottomSection}>
-        {/* Ліва колонка: Спочатку характеристики, потім відгуки */}
-        <div className={styles.leftColumn}>
-          <VehicleDetails data={camper} />
+        <h2 className={styles.reviewTitle}>Review</h2>
+        <div className={styles.downBlock}>
           <CamperReviews data={reviews} />
-        </div>
-        
-        {/* Права колонка: Форма бронювання */}
-        <div className={styles.rightColumn}>
           <BookingForm />
         </div>
       </div>

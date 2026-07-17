@@ -1,23 +1,28 @@
-import { Camper } from '@/types/types';
+import { Camper, CamperCar } from '@/types/types';
 import styles from './Rating.module.css';
 
 interface RatingProps {
-    data: Camper;
+    data: Camper | CamperCar;
 }
 
 export default function Rating({ data }: RatingProps) {
+    const {
+        rating,
+        totalReviews,
+        location
+    } = data
     return(
         <div className={styles.metaRow}>
                     <div className={styles.rating}>
                         <div className={styles.starIcon} />
                         <span className={`${styles.ratingText} ${styles.text}`}>
-                            {data.rating}({data.totalReviews} Reviews)
+                            {rating}({totalReviews} Reviews)
                         </span>
                     </div>
                     <div className={styles.location}>
                         <div className={styles.locationIcon} />
                         <span className={`${styles.locationText} ${styles.text}`}>
-                            {data.location}
+                            {location}
                         </span>
                     </div>
                 </div>

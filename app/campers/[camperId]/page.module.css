@@ -1,45 +1,39 @@
 .container {
-  width: 1440px; /* Або 100% з max-width за макетом */
+  width: 100%;
   margin: 0 auto;
-  padding: 40px 64px;
-  box-sizing: border-box;
+  padding: 64px;
   display: flex;
   flex-direction: column;
-  gap: 40px; /* Зазор між верхньою та нижньою частинами */
+  gap: 88px;
 }
 
-/* Верхня секція: Галерея + Текст */
 .topSection {
   display: flex;
-  gap: 40px;
+  gap: 24px;
   width: 100%;
 }
 
-.galleryColumn {
-  width: 600px; /* Зразкова ширина великого фото з макета, підкоригуйте за Figma */
-  flex-shrink: 0;
+.rightTop {
+  display: flex;
+  flex-direction: column;
 }
 
-.infoColumn {
-  flex-grow: 1;
-}
-
-/* Нижня секція: Деталі, Відгуки + Форма */
 .bottomSection {
   display: flex;
-  gap: 40px;
+  flex-direction: column;
+  gap: 24px;
   width: 100%;
   align-items: flex-start;
 }
 
-.leftColumn {
-  display: flex;
-  flex-direction: column;
-  gap: 44px; /* Відступ між блоком характеристик та відгуками */
-  flex-grow: 1;
+.reviewTitle {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
 }
 
-.rightColumn {
-  width: 448px; /* Ширина картки форми з макета */
-  flex-shrink: 0;
+.downBlock{
+  display: flex;
+  gap: 48px;
 }
+
