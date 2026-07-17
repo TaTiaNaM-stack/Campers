@@ -1,7 +1,7 @@
 .galleryContainer {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 27px;
   width: 638px;
   flex-shrink: 0;
 }
@@ -9,40 +9,35 @@
 .mainImageWrapper {
   position: relative;
   width: 100%;
-  height: 420px;
-  border-radius: 16px;
+  height: 505px;
+  border-radius: 17px;
   overflow: hidden;
 }
 
 .sideGrid {
   display: flex;
   flex-direction: row;
-  gap: 16px;
+  gap: 32px;
   width: 100%;
 }
 
-/* Перетворюємо обгортку на чисту кнопку */
 .sideImageWrapper {
   position: relative;
-  flex: 1; 
+  flex: 1;
   height: 120px;
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
-  background: transparent;
-  border: 2px solid transparent; /* Прозора рамка за замовчуванням */
+  background-color: transparent;
+  border: 2px solid transparent;
   padding: 0;
-  cursor: pointer;
-  transition: all 0.2s ease;
 }
 
 .sideImageWrapper:hover {
-  opacity: 0.8; /* Легке заліснення при наведенні */
+  opacity: 0.9;
 }
 
-/* СТИЛЬ ДЛЯ АКТИВНОЇ КАРТКИ: додає ефект виділення як у Figma */
 .activeThumb {
-  border-color: #E44848; /* Фірмовий червоний контур навколо вибраного фото */
-  transform: scale(0.98); /* Легке натискання */
+  border-color: #829b91;
 }
 
 .image {
@@ -51,12 +46,13 @@
 
 .noImages {
   width: 100%;
-  height: 420px;
-  background: #F2F4F7;
+  height: 505px;
+  background: #f2f4f7;
   border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #6C717B;
-  font-family: var(--font-family);
+  color: #6c717b;
+  font-weight: 500;
+  font-size: 16px;
 }
