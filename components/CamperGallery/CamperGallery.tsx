@@ -26,7 +26,8 @@ export default function CamperGallery({ gallery = [], alt }: CamperGalleryProps)
         <Image
           src={currentMainImage}
           alt={alt}
-          fill
+          width={638}
+          height={530}
           className={styles.image}
           priority
         />
@@ -47,7 +48,8 @@ export default function CamperGallery({ gallery = [], alt }: CamperGalleryProps)
               <Image
                 src={img.thumb}
                 alt={alt}
-                fill
+                width={136}
+                height={144}
                 className={styles.image}
               />
             </button>

@@ -6,60 +6,56 @@ interface VehicleDetailsProps {
 }
 
 export default function VehicleDetails({ data: camper }: VehicleDetailsProps) {
-  // Функція для капіталізації першої літери (наприклад, automatic -> Automatic)
-  const capitalize = (str: string) => (str ? str.charAt(0).toUpperCase() + str.slice(1) : '');
+  const formatText = (str: string) => {
+    if (!str) return '';
+    
+    const cleanStr = str.replaceAll('_', ' ');
+    return cleanStr.charAt(0).toUpperCase() + cleanStr.slice(1);
+  };
+ 
+  const badgesOrder = ['transmission', 'ac', 'engine', 'kitchen', 'radio', 'form'];
+
+  const normalizedAmenities: string[] = Array.isArray(camper.amenities)
+    ? camper.amenities
+    : typeof camper.amenities === 'string'
+    ? camper.amenities.split(',').map(item => item.trim().toLowerCase())
+    : [];
+
+  const badgesToRender = badgesOrder.filter(key => {
+    if (key === 'transmission' || key === 'engine' || key === 'form') {
+      return !!camper[key];
+    }
+    return normalizedAmenities.includes(key);
+  });
+
+  const tableFields = ['form', 'length', 'width', 'height', 'tank', 'consumption'] as const;
 
   return (
     <div className={styles.detailsContainer}>
       <h2 className={styles.sectionTitle}>Vehicle details</h2>
-      <hr className={styles.divider} />
-
-      {/* 1. Блок круглих бейджів характеристик (як на макеті) */}
       <div className={styles.badgesGrid}>
-        <div className={styles.badge}>
-          <div className={`${styles.badgeIcon} ${styles.transmissionIcon}`} />
-          <span>{capitalize(camper.transmission)}</span>
-        </div>
-        
-        <div className={styles.badge}>
-          <div className={`${styles.badgeIcon} ${styles.engineIcon}`} />
-          <span>{capitalize(camper.engine)}</span>
-        </div>
-
-        {/* Додайте інші бейджі за макетом (AC, Kitchen тощо), якщо вони є в amenities */}
-        <div className={styles.badge}>
-          <div className={`${styles.badgeIcon} ${styles.acIcon}`} />
-          <span>AC</span>
-        </div>
+        {badgesToRender.map((key) => {
+          const displayValue = (key === 'transmission' || key === 'engine' || key === 'form')
+            ? camper[key]
+            : key;
+          return (
+            <div key={key} className={styles.badge}>
+              {formatText(displayValue)}
+            </div>
+          );
+        })}
       </div>
-
-      {/* 2. Автоматична таблиця параметрів машини */}
+      <hr className={styles.divider} />
       <table className={styles.table}>
-        <tbody>
-          <tr>
-            <td className={styles.label}>Form</td>
-            <td className={styles.value}>{capitalize(camper.form)}</td>
-          </tr>
-          <tr>
-            <td className={styles.label}>Length</td>
-            <td className={styles.value}>{camper.length}</td>
-          </tr>
-          <tr>
-            <td className={styles.label}>Width</td>
-            <td className={styles.value}>{camper.width}</td>
-          </tr>
-          <tr>
-            <td className={styles.label}>Height</td>
-            <td className={styles.value}>{camper.height}</td>
-          </tr>
-          <tr>
-            <td className={styles.label}>Tank</td>
-            <td className={styles.value}>{camper.tank}</td>
-          </tr>
-          <tr>
-            <td className={styles.label}>Consumption</td>
-            <td className={styles.value}>{camper.consumption}</td>
-          </tr>
+        <tbody className={styles.tableRows}>
+          {tableFields.map((field) => (
+            <tr key={field}>
+              <td className={styles.label}>{formatText(field)}</td>
+              <td className={styles.value}>
+                {field === 'form' ? formatText(camper[field]) : camper[field]}
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>

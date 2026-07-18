@@ -1,6 +1,7 @@
 .infoContainer {
   display: flex;
   flex-direction: column;
+  height: 304px;
   padding: 24px;
   border-radius: 16px;
   background-color: #f7f7f7;
