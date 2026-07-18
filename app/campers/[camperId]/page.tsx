@@ -33,7 +33,7 @@ export default async function CamperDetailPage({ params }: CamperPageProps) {
       </div>
 
       <div className={styles.bottomSection}>
-        <h2 className={styles.reviewTitle}>Review</h2>
+        <h2 className={styles.reviewTitle}>Reviews</h2>
         <div className={styles.downBlock}>
           <CamperReviews data={reviews} />
           <BookingForm />

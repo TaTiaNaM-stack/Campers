@@ -49,7 +49,7 @@ export default function CamperGallery({ gallery = [], alt }: CamperGalleryProps)
                 src={img.thumb}
                 alt={alt}
                 width={136}
-                height={144}
+                height={124}
                 className={styles.image}
               />
             </button>
